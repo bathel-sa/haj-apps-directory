@@ -1,4 +1,5 @@
 .angular/
+**.devcontainer/
 node_modules
 backend/.env.local
 backend/.env

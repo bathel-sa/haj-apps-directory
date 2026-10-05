@@ -60,6 +60,9 @@ media/
 docker-compose.override.yml
 Dockerfile.prod
 
+# TLS / Certificates (mounted at runtime, never part of the build context)
+certs/
+
 # OS
 .DS_Store
 Thumbs.db

@@ -1,0 +1,7 @@
+# Do NOT commit real certificates.
+# Place your TLS files here (mounted read-only into nginx at /etc/nginx/certs):
+#   fullchain.pem   - certificate chain / leaf certificate
+#   privkey.pem     - private key
+# This .gitignore keeps the directory tracked while ignoring the actual certs.
+*
+!.gitignore
