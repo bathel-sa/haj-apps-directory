@@ -1,10 +1,11 @@
 from django.contrib import admin
+from config.admin_locale import ArabicAdminLabels
 from django.utils.html import format_html
 from .models import Developer
 
 
 @admin.register(Developer)
-class DeveloperAdmin(admin.ModelAdmin):
+class DeveloperAdmin(ArabicAdminLabels, admin.ModelAdmin):
     """
     Admin interface for managing application developers.
     """
