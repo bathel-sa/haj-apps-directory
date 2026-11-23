@@ -5,6 +5,7 @@ Provides a rich interface for reviewing and managing app submissions
 with custom actions for approval, rejection, and information requests.
 """
 from django.contrib import admin
+from config.admin_locale import ArabicAdminLabels
 from django.utils.html import format_html
 from django.utils import timezone
 from django.urls import reverse
@@ -15,7 +16,7 @@ from django import forms
 from .models import AppSubmission, SubmissionStatus, SubmissionStatusLog
 
 
-class SubmissionStatusLogInline(admin.TabularInline):
+class SubmissionStatusLogInline(ArabicAdminLabels, admin.TabularInline):
     """Inline display of status change history."""
     model = SubmissionStatusLog
     extra = 0
@@ -45,7 +46,7 @@ class InfoRequestForm(forms.Form):
 
 
 @admin.register(AppSubmission)
-class AppSubmissionAdmin(admin.ModelAdmin):
+class AppSubmissionAdmin(ArabicAdminLabels, admin.ModelAdmin):
     """Admin configuration for App Submissions."""
 
     list_display = [
@@ -584,7 +585,7 @@ class AppSubmissionAdmin(admin.ModelAdmin):
 
 
 @admin.register(SubmissionStatusLog)
-class SubmissionStatusLogAdmin(admin.ModelAdmin):
+class SubmissionStatusLogAdmin(ArabicAdminLabels, admin.ModelAdmin):
     """Admin for viewing status change logs."""
     list_display = ['submission', 'from_status', 'to_status', 'changed_by', 'created_at']
     list_filter = ['to_status', 'created_at']
