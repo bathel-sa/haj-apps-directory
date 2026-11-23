@@ -1,11 +1,12 @@
 from django.contrib import admin
+from config.admin_locale import ArabicAdminLabels
 from django.utils.html import format_html
 from .models import App, AppCrawledData, AppScreenshot
 from .widgets import AdminImageWithPreview
 from metadata.admin import AppMetadataValueInline
 
 
-class AppScreenshotInline(admin.TabularInline):
+class AppScreenshotInline(ArabicAdminLabels, admin.TabularInline):
     """
     Inline admin for managing app screenshots.
     """
@@ -28,7 +29,7 @@ class AppScreenshotInline(admin.TabularInline):
 
 
 @admin.register(App)
-class AppAdmin(admin.ModelAdmin):
+class AppAdmin(ArabicAdminLabels, admin.ModelAdmin):
     """
     Admin interface for managing Quranic applications.
     """
@@ -208,7 +209,7 @@ class AppAdmin(admin.ModelAdmin):
 
 
 @admin.register(AppCrawledData)
-class AppCrawledDataAdmin(admin.ModelAdmin):
+class AppCrawledDataAdmin(ArabicAdminLabels, admin.ModelAdmin):
     """
     Admin interface for viewing crawled data from app stores.
     Read-only - data is populated by the crawler service.

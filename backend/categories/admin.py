@@ -1,10 +1,11 @@
 from django.contrib import admin
+from config.admin_locale import ArabicAdminLabels
 from django.utils.html import format_html
 from .models import Category
 
 
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(ArabicAdminLabels, admin.ModelAdmin):
     """
     Admin interface for managing application categories.
     """
