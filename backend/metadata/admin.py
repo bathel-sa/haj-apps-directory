@@ -13,10 +13,11 @@ Key Features:
 """
 
 from django.contrib import admin
+from config.admin_locale import ArabicAdminLabels
 from .models import MetadataType, MetadataOption, AppMetadataValue
 
 
-class MetadataOptionInline(admin.TabularInline):
+class MetadataOptionInline(ArabicAdminLabels, admin.TabularInline):
     """
     Inline admin for MetadataOptions within MetadataType.
 
@@ -29,7 +30,7 @@ class MetadataOptionInline(admin.TabularInline):
 
 
 @admin.register(MetadataType)
-class MetadataTypeAdmin(admin.ModelAdmin):
+class MetadataTypeAdmin(ArabicAdminLabels, admin.ModelAdmin):
     """
     Admin for MetadataType (riwayah, mushaf_type, features, etc.).
 
@@ -64,7 +65,7 @@ class MetadataTypeAdmin(admin.ModelAdmin):
 
 
 @admin.register(MetadataOption)
-class MetadataOptionAdmin(admin.ModelAdmin):
+class MetadataOptionAdmin(ArabicAdminLabels, admin.ModelAdmin):
     """
     Admin for MetadataOption (individual metadata values).
 
@@ -96,7 +97,7 @@ class MetadataOptionAdmin(admin.ModelAdmin):
     app_count_display.short_description = 'Apps'
 
 
-class AppMetadataValueInline(admin.TabularInline):
+class AppMetadataValueInline(ArabicAdminLabels, admin.TabularInline):
     """
     Inline admin for AppMetadataValue within App admin.
 
@@ -118,7 +119,7 @@ class AppMetadataValueInline(admin.TabularInline):
 
 
 @admin.register(AppMetadataValue)
-class AppMetadataValueAdmin(admin.ModelAdmin):
+class AppMetadataValueAdmin(ArabicAdminLabels, admin.ModelAdmin):
     """
     Admin for AppMetadataValue (M2M junction table).
 
