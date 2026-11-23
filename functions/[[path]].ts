@@ -26,7 +26,7 @@ const CRAWLER_USER_AGENTS = [
   'bingbot',
 ];
 
-const API_BASE = 'https://qad-backend-api-production.up.railway.app/api';
+const API_BASE = 'https://api.hajapps.org/api';
 const BASE_URL = 'https://hajapps.org';
 const DEFAULT_IMAGE = `${BASE_URL}/assets/images/preview/preview.png`;
 
